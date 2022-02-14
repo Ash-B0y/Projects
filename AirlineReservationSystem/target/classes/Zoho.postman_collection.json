@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "ac9e95ee-f73d-4dc6-a93b-0f5031a7b10e",
+		"name": "Zoho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userid\":\"13bcs018\",\n    \"\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticateLogin?userId=13BCS018&password=jdcjhjkjkdsc7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticateLogin"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "13BCS018"
+						},
+						{
+							"key": "password",
+							"value": "jdcjhjkjkdsc7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"13BCS019\",\n    \"password\":\"icemaiden\",\n    \"name\":\"BalaMonish\",\n    \"city\":\"Trichy\",\n    \"email\":\"itominobala@gmail.com\",\n    \"phone\":\"8383787809\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogOut",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/logOut",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchFlights",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/searchFlights?source=kolkatta&destination=jaipur&flightAvailableDate=16-02-2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"searchFlights"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "kolkatta"
+						},
+						{
+							"key": "destination",
+							"value": "jaipur"
+						},
+						{
+							"key": "flightAvailableDate",
+							"value": "16-02-2022"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterFlights",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filterList[0]",
+							"value": "stop,duration",
+							"type": "default"
+						},
+						{
+							"key": "filterList[1]",
+							"value": "hello",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/filterFlights?filterList=stoptype=single",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"filterFlights"
+					],
+					"query": [
+						{
+							"key": "filterList",
+							"value": "stoptype=single"
+						},
+						{
+							"key": "filterList",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookTickets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"passengers\":[{\n    \"passengerName\":\"Ashwini\",\n    \"passengerAge\":26,\n    \"passengerGender\":\"Female\"\n }],\n     \"flightToBeBooked\":{ \n       \"flightId\": \"F1041\",\n        \"airlines\": \"WingMeIn\",\n        \"source\": \"Kolkatta\",\n        \"destination\": \"Jaipur\",\n        \"fare\": 2790.0,\n        \"stopType\": \"Single\",\n        \"journeyDuration\": 2.25,\n        \"availableDate\": \"2022-02-15T18:30:00.000+00:00\",\n        \"arrivalTime\": \"15:30\",\n        \"departuretime\": \"11:50\",\n        \"seatCount\": 17\n     \n }}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifyBooking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"passenger\":{\n    \"passengerId\":113,\n    \"passengerName\":\"Sanaullah\",\n    \"passengerAge\":26,\n    \"passengerGender\":\"Male\",\n    \"pnr\":\"P526748\"\n },\n \"addOns\":[\"food\",\"extraluggage\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/modifyBooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modifyBooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelBooking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"passengerId\":113,\n    \"passengerName\":\"Sanaullah\",\n    \"passengerAge\":26,\n    \"passengerGender\":\"Male\",\n    \"pnr\":\"P526748\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cancelBooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cancelBooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookingHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getBookingHistory?userId=13BCS018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getBookingHistory"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "13BCS018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCancelHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getCancelHistory?userId=13BCS018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCancelHistory"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "13BCS018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginateFlights",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paginateFlights?pageNo=1&pageSize=2&parameter=fare",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paginateFlights"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "parameter",
+							"value": "fare"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
