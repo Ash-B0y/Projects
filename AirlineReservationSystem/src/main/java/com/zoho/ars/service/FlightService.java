@@ -1,6 +1,7 @@
 package com.zoho.ars.service;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -42,7 +43,7 @@ public class FlightService {
 		if(pagedResult.hasContent())
 			return pagedResult.getContent();
         else 
-            return null;	
+            return new ArrayList<Flight>();	
 	}
 	
 	public List<Flight> filterFlights(List<Flight> availableFlights,String[] filterList)
